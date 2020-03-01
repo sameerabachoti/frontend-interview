@@ -1,6 +1,5 @@
 import * as React from "react";
 import RepositorySearchResults from "./RepositorySearchResults";
-import {useDebounce} from "use-debounce";
 
 /**
  * Once given an input, fetch the repositories we searched
@@ -19,14 +18,11 @@ const Repositories = () => {
 
 const [searchTerm, setSearchTerm] = React.useState("");
 
-const debouncedSearchTerm = useDebounce(searchTerm, 500);
-console.log("debouncedSearchTerm", debouncedSearchTerm);
-
 return (
     <div>
       <input name="search-terms" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
       {searchTerm ? (
-        <RepositorySearchResults searchTerm={debouncedSearchTerm} />
+        <RepositorySearchResults searchTerm={searchTerm} />
       ) : (
         <div>Enter some text to search github repositories</div>
       )}

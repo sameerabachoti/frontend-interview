@@ -14,14 +14,13 @@ import { useState, useEffect } from 'react';
  */
 
 const RepositorySearchResults = searchTerm => {
-  console.log("search term", searchTerm.searchTerm);
 
   const [hasError, setErrors] = useState(false);
   const [searchResults, setSearchResults] = useState({});
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch("https://api.github.com/search/repositories?q=${searchTerm.searchTerm}");
+      const res = await fetch("https://api.github.com/search/repositories?q={searchTerm.searchTerm}");
       res
         .json()
         .then(res => setSearchResults(res))
@@ -33,6 +32,13 @@ const RepositorySearchResults = searchTerm => {
 
   return (<div>
       <span>{JSON.stringify(searchResults)}</span>
+      <span><ul>
+       searchResults.map(result => (
+        <li>result.name</li>  
+        <li>result.description</li>
+       ));
+        </ul>
+      </span>
       <hr />
       <span>An error has occured: {JSON.stringify(hasError)}</span>
     </div>)

@@ -48,6 +48,8 @@ Please, answer the following questions in this readme, underneath the question
 
 1. Name a newer feature of javascript that you believe is extra useful, and discuss how you have used it in this project, or how you would use it if needed.
 
+React hooks are useful for many reasons. One of them is that you can just create functions, instead of classes, functions, and other things that will increase complexity. It's also much easier for a component to maintain its state by using hooks. In this project, I used some react hooks like useState and useEffect to manage state and make an API call. 
+
 2. What are 3 things you think `React` does very poorly? What tools do this better, if any?
 
 ## Submissions
