@@ -2,10 +2,11 @@ import * as React from "react";
 import { useSetUserContext } from "../contexts/user";
 
 const Login = () => {
-  const [user] = React.useState({
+  const [user, setUser] = React.useState({
     email: "",
     password: ""
   });
+
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
@@ -13,6 +14,13 @@ const Login = () => {
   }, [user.email, user.password]);
 
   const setUserContext = useSetUserContext();
+
+  const updateUser = e => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    });
+  };
   return (
     <>
       <h1>Login</h1>
@@ -38,16 +46,12 @@ const Login = () => {
         <input
           name="email"
           value={user.email}
-          onChange={event => {
-            user.email = event.target.value;
-          }}
+          onChange={updateUser}
         />
         <input
           name="password"
           value={user.password}
-          onChange={event => {
-            user.password = event.target.value;
-          }}
+          onChange={updateUser}
         />
         <button type="submit">Login</button>
       </form>
