@@ -2,6 +2,7 @@ import * as React from "react";
 import { useSetUserContext } from "../contexts/user";
 
 const Login = () => {
+  console.log("login");
   const [user, setUser] = React.useState({
     email: "",
     password: ""
